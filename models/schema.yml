@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: apple_mobility
+  - name: vw_apple_mobility
     description: "Apple mobility data filtered for France"
     columns:
       - name: country_region
