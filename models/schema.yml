@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: apple_mobility
+    description: "Apple mobility data filtered for France"
+    columns:
+      - name: country_region
+        description: "Country or region name"
+      - name: province_state
+        description: "Province or state within the country"
+      - name: cdate
+        description: "Mobility data date"
+      - name: transportation_type
+        description: "Type of transportation (driving, walking, transit)"
