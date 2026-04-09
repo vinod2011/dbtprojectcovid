@@ -8,4 +8,4 @@ select
     date as cdate,
     transportation_type
 from COVID.COVID19.APPLE_MOBILITY
-where country_region = 'France';
+where country_region = 'France'
