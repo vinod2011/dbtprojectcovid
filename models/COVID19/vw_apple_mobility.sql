@@ -5,5 +5,5 @@ select
     province_state,
     date as cdate,
     transportation_type
-from COVID.COVID19.APPLE_MOBILITY
+from COVID.PUBLIC.APPLE_MOBILITY
 where country_region = 'France'
