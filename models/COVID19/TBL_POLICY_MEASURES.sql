@@ -4,7 +4,25 @@
         incremental_strategy='insert_overwrite',
         database='TARGET_DB',
         schema='COVID19',
-        alias='TBL_POLICY_MEASURES'
+        alias='TBL_POLICY_MEASURES',
+
+        post_hook="
+        call system$curl(
+            'https://oxn7tku1ic.execute-api.us-east-1.amazonaws.com/prod/trigger-incident',
+            'POST',
+            'application/json',
+            '{
+                \"pipeline_name\": \"{{ this.name }}\",
+                \"environment\": \"{{ target.name }}\",
+                \"run_id\": \"{{ invocation_id }}\",
+                \"error_message\": \"dbt model executed successfully\",
+                \"variables\": {
+                    \"market\": \"MX\",
+                    \"load_type\": \"incremental\"
+                }
+            }'
+        );
+        "
     )
 }}
 
